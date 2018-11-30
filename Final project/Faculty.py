@@ -1,4 +1,4 @@
-from System import account
+from Account import account
 
 
 class Faculty(account):

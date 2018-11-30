@@ -2,7 +2,7 @@
 # names
 
 
-class account:
+class Account:
 
     def __init__(self, firstname, lastname, DoB, address, email, password, ID):
         self.f_name = firstname
