@@ -23,7 +23,7 @@ class Account:
         return self.address
 
     def get_email(self):
-        return self.address
+        return self.email
 
     def password_set(self, password_old, password_new):
         if password_old == self.password:
