@@ -1,9 +1,9 @@
-from Account import account
+from Account import Account
 
 
-class Faculty(account):
+class Faculty(Account):
     def __init__(self, first, last, DoB, address, email, ID, password):
-        account.__init__(self, first, last, DoB, address, email, password, ID)
+        Account.__init__(self, first, last, DoB, address, email, password, ID)
 
     def view_course(self, course_name):
         course = open('tempfile.txt', 'r')
