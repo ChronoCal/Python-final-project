@@ -1,13 +1,19 @@
+from Account import Account
 
-class Faculty:
-    def __init__(self):
-        self.fName
-        self.fID
-        self.fAddress
-        self.fDoB
-        self.fEmail
 
-    def StaffModule(self):
-        # faculty should be able to create a course, update courses, view course information
-        # retrieve studen information, provide reports for: list of students registered in a course,
-        # as either a bar or pie chart
+class Faculty(Account):
+    def __init__(self, first, last, DoB, address, email, ID, password):
+        Account.__init__(self, first, last, DoB, address, email, password, ID)
+
+    def view_course(self, course_name):
+        course = open('tempfile.txt', 'r')
+        while True:
+            line = course.readline()
+            if line == course_name:
+                find_course = True
+
+            if find_course and line != '*':
+                return line
+
+            elif find_course and line == '*':
+                break

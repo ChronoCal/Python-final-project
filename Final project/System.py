@@ -24,7 +24,6 @@ def main():
             print('\nplease make a valid selection')
             input('\npress ENTER to continue\n')
 
-
     print('Please enter credentials')
     id = input('\nID: ')
     password = input('Password: ')

@@ -1,8 +1,10 @@
-from System import account
-class students(account):
-    def __init__(self):
+from Account import Account
 
 
-    def registration(self):
-        # students need to be able to add/drop a course and determine the course load
+class students(Account):
+    def __init__(self, first, last, DoB, address, email, department, ID, password):
+        Account.__init__(self, first, last, DoB, address, email, password, ID)
+        self.Department = department
 
+    def department_get(self):
+        return self.department
