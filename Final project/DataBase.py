@@ -32,12 +32,20 @@ class Query:
             address VARCHAR(30),
             department VARCHAR(20),
             email VARCHAR(30),
-            PRIMARY KEY (student_id) );"""
-
-            increment_id = """
-            ALTER TABLE Student AUTO_INCREMENT=100000"""
+            PRIMARY KEY (student_id) );
+            Create TABLE Faculty(
+            faculty_id INT NOT NULL AUTO_INCREMENT,
+            first_name VARCHAR(20),
+            last_name VARCHAR(30),
+            address VARCHAR(30),
+            email VARCHAR(30),
+            PRIMARY KEY (faculty_id) );"""
 
             a.execute(account_create)
+
+            increment_id = """
+            ALTER TABLE Student AUTO_INCREMENT=100000,
+            ALTER TABLE Faculty AUTO_INCREMENT=1000;"""
 
             a.execute(increment_id)
 
