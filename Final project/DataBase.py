@@ -10,7 +10,7 @@ class Query:
 
         if c.fetchone() is None:
             course_create = """
-            CREATE TABLE Course(
+            CREATE TABLE IF NOT EXISTS Course(
             course_name VARCHAR(20) NOT NULL,
             course_desc VARCHAR(200) NOT NULL,
             department VARCHAR(20) NOT NULL,
@@ -19,37 +19,43 @@ class Query:
 
             c.execute(course_create)
 
-            c.commit()
+            course.commit()
 
-            c.close()
+            course.close()
 
         if a.fetchone() is None:
-            account_create = """
-            Create TABLE Student(
-            student_id INT NOT NULL AUTO_INCREMENT,
+            student_create = """
+            CREATE TABLE IF NOT EXISTS Student(
+            student_id INTEGER PRIMARY KEY,
             first_name VARCHAR(20),
             last_name VARCHAR(30),
             address VARCHAR(30),
             department VARCHAR(20),
-            email VARCHAR(30),
-            PRIMARY KEY (student_id) );
-            Create TABLE Faculty(
-            faculty_id INT NOT NULL AUTO_INCREMENT,
+            email VARCHAR(30));
+            """
+            faculty_create = """
+            CREATE TABLE IF NOT EXISTS Faculty(
+            faculty_id INTEGER PRIMARY KEY,
             first_name VARCHAR(20),
             last_name VARCHAR(30),
             address VARCHAR(30),
-            email VARCHAR(30),
-            PRIMARY KEY (faculty_id) );"""
+            email VARCHAR(30));"""
 
-            a.execute(account_create)
+            a.execute(student_create)
+            a.execute(faculty_create)
 
-            increment_id = """
-            ALTER TABLE Student AUTO_INCREMENT=100000,
-            ALTER TABLE Faculty AUTO_INCREMENT=1000;"""
+            account.commit()
 
-            a.execute(increment_id)
+            account.close()
 
-            a.commit()
+    def Get_student(self, ID):
+        account = sql.connect("account.db")
+        a = account.cursor()
 
-            a.close()
+        a.execute("Select * FROM Student Where student_id =" + str(ID))
 
+        return a.fetchall()
+
+        account.commit()
+
+        account.close()
