@@ -79,3 +79,9 @@ class Query:
         a = account.cursor()
 
         a.execute("Select password FROM faculty Where faculty_id = " + str(id))
+
+        return a.fetchall()
+
+        account.commit()
+
+        account.close()
