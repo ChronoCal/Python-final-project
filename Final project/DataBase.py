@@ -85,3 +85,27 @@ class Query:
         account.commit()
 
         account.close()
+
+    def Add_student(self, first_name, last_name, address, department, password, email):
+        account = sql.connect("account.db")
+        a = account.cursor()
+
+        add_student = """INSERT INTO Student (student_id, first_name, last_name, address, department, password, email)
+            VALUES (NULL, "{first}", "{last}", "{address}", "{department}", "{password}", "{email}") ; """
+
+        a.execute(add_student.format(first=first_name, last=last_name, address=address, department=department, password=password, email=email))
+
+        account.commit()
+
+        account.close()
+
+    def DROP(self):
+        account = sql.connect("account.db")
+        a = account.cursor()
+
+        a.execute("DROP TABLE Student")
+        a.execute("DROP TABLE Faculty")
+
+        account.commit()
+
+        account.close()
