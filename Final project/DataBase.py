@@ -62,7 +62,7 @@ class Query:
 
         account.close()
 
-    def Get_password(self, ID):
+    def Get_password_student(self, ID):
         account = sql.connect("account.db")
         a = account.cursor()
 
@@ -73,3 +73,9 @@ class Query:
         account.commit()
 
         account.close()
+
+    def Get_password_faculty(self, ID):
+        account = sql.connect("account.db")
+        a = account.cursor()
+
+        a.execute("Select password FROM faculty Where faculty_id = " + str(id))
