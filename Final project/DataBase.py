@@ -31,6 +31,7 @@ class Query:
             last_name VARCHAR(30),
             address VARCHAR(30),
             department VARCHAR(20),
+            password VARCHAR(20),
             email VARCHAR(30));
             """
             faculty_create = """
@@ -39,6 +40,7 @@ class Query:
             first_name VARCHAR(20),
             last_name VARCHAR(30),
             address VARCHAR(30),
+            password VARCHAR(20),
             email VARCHAR(30));"""
 
             a.execute(student_create)
@@ -53,6 +55,18 @@ class Query:
         a = account.cursor()
 
         a.execute("Select * FROM Student Where student_id =" + str(ID))
+
+        return a.fetchall()
+
+        account.commit()
+
+        account.close()
+
+    def Get_password(self, ID):
+        account = sql.connect("account.db")
+        a = account.cursor()
+
+        a.execute("Select password FROM Student Where student_id =" + str(ID))
 
         return a.fetchall()
 
