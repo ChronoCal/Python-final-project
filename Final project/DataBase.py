@@ -3,9 +3,9 @@ import sqlite3 as sql
 
 class Query:
     def __init__(self):
-        course = sql.connect("course.db")
+        course = sql.connect("course.txt")
         c = course.cursor()
-        account = sql.connect("account.db")
+        account = sql.connect("account.txt")
         a = account.cursor()
 
         if c.fetchone() is None:
