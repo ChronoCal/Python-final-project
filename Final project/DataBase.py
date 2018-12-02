@@ -56,11 +56,13 @@ class Query:
 
         a.execute("Select * FROM Student Where student_id =" + str(ID))
 
-        return a.fetchall()
+        out = a.fetchall()
 
         account.commit()
 
         account.close()
+
+        return out
 
     def Get_password_student(self, ID):
         account = sql.connect("account.db")
@@ -68,11 +70,13 @@ class Query:
 
         a.execute("Select password FROM Student Where student_id =" + str(ID))
 
-        return a.fetchall()
+        out = a.fetchall()
 
         account.commit()
 
         account.close()
+
+        return out
 
     def Get_password_faculty(self, ID):
         account = sql.connect("account.db")
@@ -80,11 +84,13 @@ class Query:
 
         a.execute("Select password FROM faculty Where faculty_id = " + str(id))
 
-        return a.fetchall()
+        out = a.fetchall()
 
         account.commit()
 
         account.close()
+
+        return out
 
     def Add_student(self, first_name, last_name, address, department, password, email):
         account = sql.connect("account.db")
@@ -99,7 +105,7 @@ class Query:
 
         account.close()
 
-    def DROP(self):
+    def DROP_ACCOUNT(self):
         account = sql.connect("account.db")
         a = account.cursor()
 
