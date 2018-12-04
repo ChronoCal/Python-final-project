@@ -165,7 +165,7 @@ def editCourses():
     cID = "10012345"
     realCourse = False
     while realCourse == False:
-        # cID = input('Enter the ID of the course you with to manage:')
+        cID = input('Enter the ID of the course you with to manage:')
         for line in courseFile:
             print('test')
             lst = line.split("^")
