@@ -9,6 +9,14 @@ class Parse:
         self.fPassword = fPassword
 
 
+    def read_file(self, ID):
+        testFile = open("testParseFile.txt", "r")
+
+        for line in testFile:
+            lst = line.split("^")
+            if lst.__contains__(ID):
+                return lst
+
     def s_register_course(self, sID):
     #we will already know which student will be registering because they have to login, I will choose someone
 
