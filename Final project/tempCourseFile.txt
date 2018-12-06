@@ -1,0 +1,4 @@
+Discrete Math^6^100^123456789^Computer Science^1111234567,1111234567,
+Programming with Python^0^100^123456788^Computer Science^
+Canvas Painting^0^40^123454321^Art^
+Sketching^0^40^123454322^Art^

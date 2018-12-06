@@ -1,9 +1,9 @@
 # Student IDs
 # names
 
-# from Students import students
-# from Faculty import Faculty
-
+from Students import students
+from Faculty import Faculty
+from ParsingTest import Parse
 
 def main():
 
@@ -12,6 +12,7 @@ def main():
         print('Welcome to the Student Registration System\n')
         print('[1] Student login')
         print('[2] Faculty login')
+        print('_______________________________________________')
         login_type = input('\nSpecify login: ')
 
         if login_type == '1':
@@ -25,12 +26,19 @@ def main():
             input('\npress ENTER to continue\n')
 
     print('Please enter credentials')
-    id = input('\nID: ')
-    password = input('Password: ')
+    ID = input('\nID: ')
+    Password = input('Password: ')
+    sID = 0
+    sPassword = 0
+    courseID = 0
+    fID = 0
+    fPassword = 0
 
     if login_type == '1':
         print('pick 1')
-        # students(id, password)
+        parse = Parse(ID, Password, courseID, fID, fPassword)
+
+        parse.s_authenticate(sID, sPassword)
 
     elif login_type == '2':
         print('pick 2')
