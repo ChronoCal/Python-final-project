@@ -26,19 +26,21 @@ def main():
             input('\npress ENTER to continue\n')
 
     print('Please enter credentials')
-    ID = input('\nID: ')
-    Password = input('Password: ')
-    sID = 0
-    sPassword = 0
-    courseID = 0
-    fID = 0
-    fPassword = 0
+    id = input('\nID: ')
+    password = input('Password: ')
 
     if login_type == '1':
-        print('pick 1')
-        parse = Parse(ID, Password, courseID, fID, fPassword)
+        # print('pick 1')
+        try:
+            student = students(id)
+            detective_pikachu_is_danny_devito = student.verify(password)
+            if detective_pikachu_is_danny_devito:
+                print('welcome to the club')
 
-        parse.s_authenticate(sID, sPassword)
+            else:
+                print('GTFO')
+        except AttributeError:
+            print('TOO BAD')
 
     elif login_type == '2':
         print('pick 2')

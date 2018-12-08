@@ -1,22 +1,27 @@
 from Account import Account
+from ParsingTest import Parse
 
 
 class students(Account):
     def __init__(self, ID):
-        Account.__init__(self, first, last, address, DoB, email, password, ID)
-        testFile = open("testParseFile.txt", "r")
-        for line in testFile:
-            lst = line.split('^')
-            if lst.__contains__(ID):
+        parse = Parse()
+        info = parse.read_file(ID)
 
-        self.first =
-        self.last =
-        self.address =
-        self.DoB =
-        self.email =
-        self.department =
-        self.password =
-        self.ID =
+        if info != 'student not found':
+            first = info[0]
+            last = info[1]
+            address = info[2]
+            DoB = info[3]
+            self.department = info[4]
+            email = info[5]
+            ID = info[6]
+            password = info[7]
+
+            Account.__init__(self, first, last, address, DoB, email, password, ID)
+
+        else:
+            print(info)
+
 
 
     def department_get(self):

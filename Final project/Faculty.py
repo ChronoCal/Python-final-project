@@ -1,5 +1,5 @@
 from Account import Account
-
+import matplotlib.pyplot as plt
 
 class Faculty(Account):
     def __init__(self, first, last, DoB, address, email, ID, password):
@@ -17,3 +17,6 @@ class Faculty(Account):
 
             elif find_course and line == '*':
                 break
+
+    def course_graph(self, course_data):
+

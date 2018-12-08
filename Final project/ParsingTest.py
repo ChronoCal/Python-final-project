@@ -1,13 +1,8 @@
 
 class Parse:
 
-    def __init__(self, sID, sPassword, courseID, fID, fPassword):
-        self.sID = sID
-        self.sPassword = sPassword
-        self.courseID = courseID
-        self.fID = fID
-        self.fPassword = fPassword
-
+    def __init__(self):
+        pass
 
     def read_file(self, ID):
         testFile = open("testParseFile.txt", "r")
@@ -16,6 +11,10 @@ class Parse:
             lst = line.split("^")
             if lst.__contains__(ID):
                 return lst
+            else:
+                lst = 'student not found'
+                return lst
+
 
     def s_register_course(self, sID):
     #we will already know which student will be registering because they have to login, I will choose someone
