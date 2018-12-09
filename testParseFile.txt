@@ -1,1 +1,1 @@
-matthew^martin^123 random street^01/02/03^Computer Science^email@address.com^1234567^test^
+matthew^martin^123 random street^01/02/03^Computer Science^test@student.com^1234567^test^

@@ -1,7 +1,8 @@
+# 100705779, 100702991, 100703659
+# Kevin Nguyen, Mark Bermah , Matthew Martin
 
 from Account import Account
 from ParsingTest import Parse
-
 
 class students(Account):
     def __init__(self, ID):
@@ -17,13 +18,13 @@ class students(Account):
                 email = info[5]
                 ID = info[6]
                 password = info[7]
-
                 Account.__init__(self, first, last, address, DoB, email, password, ID)
 
             else:
                 pass
         except TypeError:
-            print('Try again')
+            print('Login Failed')
+            input('\npress ENTER to continue')
 
     def department_get(self):
         return self.department

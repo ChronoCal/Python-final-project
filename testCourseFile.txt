@@ -1,4 +1,5 @@
-Canvas Painting^10^40^123454321^Art^
+Canvas Painting^0^40^123454321^Art^
 Sketching^0^40^123454322^Art^Art^
-test2^1^100^123456544^Computer Science^1234567^
-test1^0^100^123456543^Computer Science^
+Math^0^100^123456765^Computer Science^
+Discrete Math^1^100^123456766^Computer Science^1234567^
+Programming^1^100^123456789^Computer Science^1234567^

@@ -1,9 +1,31 @@
+# 100705779, 100702991, 100703659
+# Kevin Nguyen, Mark Bermah , Matthew Martin
+
 from Account import Account
-import matplotlib.pyplot as plt
+from ParsingTest import Parse
 
 class Faculty(Account):
-    def __init__(self, first, last, DoB, address, email, ID, password):
-        Account.__init__(self, first, last, DoB, address, email, password, ID)
+    def __init__(self, ID):
+        parse = Parse()
+        info = parse.f_get_info(ID)
+
+        try:
+            if info != 'staff not found':
+                first = info[0]
+                last = info[1]
+                ID = info[2]
+                address = info[3]
+                DoB = info[4]
+                email = info[5]
+                password = info[6]
+
+                Account.__init__(self, first, last, address, DoB, email, password, ID)
+
+            else:
+                pass
+        except TypeError:
+            print('Login Failed')
+            input('\npress ENTER to continue')
 
     def view_course(self, course_name):
         course = open('tempfile.txt', 'r')
@@ -17,18 +39,3 @@ class Faculty(Account):
 
             elif find_course and line == '*':
                 break
-
-    def course_graph_pie(self, labels, size):
-        labels = ['test1', 'test2', 'test3', 'test4']
-        size = [25, 25, 25, 25]
-        # explode (0, 0, 0, 0)
-        fig1, display = plt.subplots()
-        display.pie(size, labels=labels, autopct='%1.1f%%', startangle=90, shadow=True)
-        display.axis('equal')
-
-        plt.show()
-
-# def main():
-#     Faculty.course_graph()
-#
-# main()

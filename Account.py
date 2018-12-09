@@ -1,10 +1,9 @@
-# Student IDs
-# names
-
+# 100705779, 100702991, 100703659
+# Kevin Nguyen, Mark Bermah , Matthew Martin
 
 class Account:
 
-    def __init__(self, firstname, lastname, DoB, address, email, password, ID):
+    def __init__(self, firstname, lastname, address, DoB, email, password, ID):
         self.f_name = firstname
         self.l_name = lastname
         self.DoB = DoB
@@ -13,8 +12,11 @@ class Account:
         self.password = password
         self.ID = ID
 
-    def get_name(self):
-        return self.f_name + self.l_name
+    def get_Fname(self):
+        return self.f_name
+
+    def get_Lname(self):
+        return self.l_name
 
     def get_DoB(self):
         return self.DoB
@@ -23,13 +25,14 @@ class Account:
         return self.address
 
     def get_email(self):
-        return self.address
+        return self.email
 
     def password_set(self, password_old, password_new):
         if password_old == self.password:
             self.password = password_new
         else:
             print("Incorrect password \nPlease try again")
+            input('\npress ENTER to continue')
 
     def password_get(self):
         return self.Password
